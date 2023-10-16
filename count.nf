@@ -529,6 +529,7 @@ if(params.mpranalyze){
     * STEP 7: Add label to outfile
     * contributions: Gracie Gordon
     */
+  /* to edit to accept BC length as an input */
 
     process 'final_label'{
         label 'shorttime'
