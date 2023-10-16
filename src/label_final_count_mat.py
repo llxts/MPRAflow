@@ -86,7 +86,8 @@ print(counts)
 #filter results
 #mask=pandas.Series(result['BC'].str.len() == 10,name='bools')
 
-mask=(counts['Barcode'].str.len() == 15)
+#changed from 15 to 12 (length of bc). Probably better to get the length of the BC somewhere else rather than hardcoded but IDK how
+mask=(counts['Barcode'].str.len() == 12)
 print(mask)
 counts[mask]
 counts_filtered_t = counts[mask]
