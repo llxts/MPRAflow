@@ -116,8 +116,8 @@ if(data %>% nrow >1){
 
 print('hist')
 nrows=ceiling(num_replicates/2)
-png(sprintf("%s_barcodesPerInsert.png",cond),width=300,height=244,type="cairo")
-par(mfrow=c(nrows,2), mar=c(2.5,3,2.5,3))
+png(sprintf("%s_barcodesPerInsert.png",cond),width=1000,height=800,type="cairo")
+par(mfrow=c(nrows,2), mar=c(1,1,1,1)) #changed to 1,1,1,1 and changed the height for optimal display of data from large screen
 
 for(n in 1:(data%>%nrow)){
     data1 <- read.table(as.character(data[n,]$File),as.is=T,sep="\t",header=T,stringsAsFactors = F) %>% filter(name != 'no_BC')
@@ -136,7 +136,7 @@ all=''
 dlog=''
 dname=''
 
-png(sprintf("%s_barcodesPerInsert_box.png",cond),width=800,height=800,type="cairo")
+png(sprintf("%s_barcodesPerInsert_box.png",cond),width=1000,height=800,type="cairo")
 
 for(n in 1:(data%>%nrow)){
     data1=read.table(as.character(data[n,]$File),as.is=T,sep="\t",header=T,stringsAsFactors = F)  %>% filter(name != 'no_BC')
