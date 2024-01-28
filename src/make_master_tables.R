@@ -19,13 +19,18 @@ nrm_reps=c()
 all_reps=c()
 ##MAKE MASTER TABLE
 replicates=((length(args)-4)/2)
+#no idea why the previous code doesn't show n=10 bc when thresh is set to 4, changing this seems to help.
+thresh = as.numeric(thresh)
+
+
 for (i in 5:(length(args)-replicates)){
    file=args[i]
    rep=args[i+replicates]
-
    tab=as.data.frame(read.table(file,header=TRUE))
 
    filter_tab=tab[tab$n_obs_bc >= thresh,]
+   #unfortunately this results in no_BC appearing in the final results file, thus this line to filter out those that has no assigned cres
+   filter_tab = filter_tab[filter_tab$name != "no_BC",]
 
    n_inserts=(dim(filter_tab)[1])
 
